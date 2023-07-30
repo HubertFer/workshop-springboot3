@@ -1,7 +1,7 @@
 package com.hubert.springboot3.services;
 
-import com.hubert.springboot3.entities.User;
-import com.hubert.springboot3.repositories.UserRepository;
+import com.hubert.springboot3.entities.Order;
+import com.hubert.springboot3.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +10,17 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class OrderService {
     @Autowired
-    private UserRepository repository;
+    private OrderRepository repository;
 
-    public List<User> findAll(){
+    public List<Order> findAll(){
         return repository.findAll();
     }
 
-    public User findById(Long id){
+    public Order findById(Long id){
         try {
-            Optional<User> obj = repository.findById(id);
+            Optional<Order> obj = repository.findById(id);
             return obj.get();
         }
         catch (NoSuchElementException e){
